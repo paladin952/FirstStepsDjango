@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog' #add the blog app to the list
 ]
 
 MIDDLEWARE_CLASSES = [
