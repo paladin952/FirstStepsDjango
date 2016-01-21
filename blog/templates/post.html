@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h3><a href="/blog/{{ post.id }}">{{ post.title }}</a></h3>
-    <div class="post_meta">
-        on {{ post.date }}
-    </div>
+    <div class="mainContent">
+            <div class="content">
+                <article class="typicalArticle">
+                    <header>
+                        <h3>{{ post.title }}</h3>
+                    </header>
 
-    <div class="post_body">
-        {{ post.body|safe|linebreaks }}
-    </div>
+                    <footer>
+                        <p class="postInfo">Posted on {{ post.date|date:"Y-m-d" }}</p>
+                    </footer>
+
+                    <content>
+                        <p>{{ post.body }}</p>
+                    </content>
+
+                </article>
+            </div>
+        </div>
 {% endblock %}

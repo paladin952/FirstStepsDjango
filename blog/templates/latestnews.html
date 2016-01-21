@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+
 {% block content %}
     {% for post in object_list %}
         <div class="mainContent">
             <div class="content">
                 <article class="typicalArticle">
                     <header>
-                        <h3><a href="/blog/{{ post.id }}" title="Latest post">{{ post.title }}</a></h3>
+                        <h3><a href="/blog/{{ post.id }}">{{ post.title }}</a></h3>
                     </header>
 
                     <footer>
@@ -13,7 +14,7 @@
                     </footer>
 
                     <content>
-                        <p>{{ post.body }}</p>
+                        <p>{{ post.body|slice:"0:200" }}...</p>
                     </content>
 
                 </article>

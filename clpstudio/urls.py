@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import ListView
+
+from blog.models import Post
 
 admin.autodiscover()
 
@@ -22,4 +25,8 @@ urlpatterns = [
 
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
+
+    url(r'^$', ListView.as_view(
+        queryset=Post.objects.all().order_by("-date")[:25],
+        template_name="base.html")),
 ]
