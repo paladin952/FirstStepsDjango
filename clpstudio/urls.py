@@ -13,11 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import ListView
+
+from blog.models import Post
 
 admin.autodiscover()
 
 urlpatterns = [
+
+    url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
+
+    url(r'^$', ListView.as_view(
+        queryset=Post.objects.all().order_by("-date")[:25],
+        template_name="base.html")),
 ]
