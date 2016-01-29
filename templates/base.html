@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>CLPSTUDIO</title>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css"/>
+
+    <meta name="viewport content = width-device-width, initial-scale=1.0">
+</head>
+
+<body class="body">
+<header class="mainHead">
+    <img src="/static/img/mainlogo.png" width="700" height="144">
+    <nav>
+        <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/blog'>Blog</a></li>
+            <li><a href='/blog/latestnews'>News</a></li>
+            <li><a href='/blog/archives'>Archives</a></li>
+        </ul>
+    </nav>
+</header>
+
+<aside class="sideInfo">
+    <article>
+        <h3>Recent News</h3>
+
+        {% for post in object_list %}
+            <p>{{ post.date|date:"Y-m-d" }}<a href="/blog/{{ post.id }}"> {{ post.title }}</a></p>
+        {% endfor %}
+
+    </article>
+</aside>
+
+{% block content %}
+
+
+{% endblock %}
+
+<footer class="mainFooter">
+    <p>Copyright &copy; 2016</p>
+</footer>
+</body>
+</html>

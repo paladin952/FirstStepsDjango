@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="mainContent">
+            <div class="content">
+                <article class="typicalArticle">
+                    <header>
+                        <h3>{{ post.title }}</h3>
+                    </header>
+
+                    <footer>
+                        <p class="postInfo">Posted on {{ post.date|date:"Y-m-d" }}</p>
+                    </footer>
+
+                    <content>
+                        <p>{{ post.body }}</p>
+                    </content>
+
+                </article>
+            </div>
+        </div>
+{% endblock %}
