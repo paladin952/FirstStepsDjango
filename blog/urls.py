@@ -21,6 +21,4 @@ urlpatterns = [
         queryset=Post.objects.all().order_by("-date")[:5],
         template_name="latestnews.html")),
 
-    url(r'^signup/', "blog.views.sign_up", name="sign up"),
-
     ]
