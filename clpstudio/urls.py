@@ -22,6 +22,8 @@ urlpatterns = [
 
                   url(r'^blog/', include('blog.urls')),
 
+                  url(r'^videos/', include('videos.urls')),
+
                   url(r'^admin/', admin.site.urls),
 
                   url(r'^signup/$', "blog.views.sign_up"),
