@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block siderbar %}
+<aside class="sideInfo">
+    <article>
+        <h3>Recent News</h3>
+
+        {% for video in object_list %}
+            <p><a href="/videos/{{ video.id }}"> {{ video.title }}</a></p>
+        {% endfor %}
+
+    </article>
+</aside>
+{% endblock %}
+
+{% block content %}
+
+
+{% for video in object_list %}
+        <div class="mainContent">
+            <div class="content">
+                <article class="typicalArticle">
+                    <header>
+                        <h3><a href="/videos/{{ video.id }}" title="Latest post">{{ video.title }}</a></h3>
+                        <p>{{ video.description }}</p>
+                    </header>
+
+                 
+                </article>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

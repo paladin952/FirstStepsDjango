@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>CLPSTUDIO</title>
+    <title>{{ title }}</title>
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css"/>
@@ -26,6 +26,7 @@
     </nav>
 </header>
 
+{% block siderbar %}
 <aside class="sideInfo">
     <article>
         <h3>Recent News</h3>
@@ -36,9 +37,9 @@
 
     </article>
 </aside>
+{% endblock %}
 
 {% block content %}
-
 
 {% endblock %}
 

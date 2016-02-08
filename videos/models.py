@@ -7,7 +7,7 @@ class Video(models.Model):
 	title = models.CharField(max_length=200)
 	description = models.TextField(max_length=5000)
 	upload_date = models.DateTimeField(default=timezone.now)
-	video_id = models.CharField(max_length=50)
+	url = models.CharField(max_length=500, default="/")
 	tags = models.CharField(max_length=200)
 
 	def __unicode__(self):

@@ -7,7 +7,11 @@ from django.conf import settings
 # Create your views here.
 
 def home(request):
-    return render(request, "base.html", {})
+    title = "CLPSTUDIO"
+    context = {
+        "title": title,
+        }
+    return render(request, "base.html", context)
 
 
 def sign_up(request):
@@ -21,7 +25,10 @@ def sign_up(request):
         print("PRINT " + instance.password)
     else:
         print("Errors: " + str(form.errors))
+
+    title = "SIGN UP"
     context = {
+        "title": title,
         "form": form,
     }
 
@@ -46,7 +53,9 @@ def contact(request):
         #           contact_message,
         #           from_email, to_email,
         #           fail_silently=False)
+    title = "CONTACT"
     context = {
+        "title": title,
         "form": form,
     }
 
