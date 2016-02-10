@@ -7,7 +7,7 @@ from .models import SignUp
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'body', 'date']
+        fields = ['title', 'body', 'date', 'post_type']
 
     def clean_title(self):
         title = self.cleaned_data.get('title')

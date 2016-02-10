@@ -9,4 +9,5 @@ def video(request):
 		"url": url,
 		"title": title,
 		}
-	return render(request, "videos/index.html", context) 
+	return render(request, "videos/index.html", context)
+
