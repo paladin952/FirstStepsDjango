@@ -19,7 +19,6 @@ class Video(models.Model):
 	upload_date = models.DateTimeField(default=timezone.now)
 	url = models.CharField(max_length=500, default="/")
 	tags = models.CharField(max_length=200)
-	video_type = models.CharField(max_length=50, default="normal")
 
 	def __unicode__(self):
 		return self.title
