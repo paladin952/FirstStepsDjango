@@ -4,10 +4,13 @@ from django.template.response import TemplateResponse
 # Create your views here.
 def video(request):
 	title = "VIDEOS"
-	url = "https://www.youtube.com/embed/97UdoxENO6Q?list=PLei96ZX_m9sWowRU2mn0ccUNIBTTclcWO"
+	video_list = Video.objects.all()
+
+	video_type_list = video_list
+
 	context = {
-		"url": url,
 		"title": title,
+		"video_type_list": video_type_list
 		}
 	return render(request, "videos/index.html", context)
 

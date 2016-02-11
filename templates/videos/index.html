@@ -5,9 +5,16 @@
     <article>
         <h3>Recent News</h3>
 
-        {% for video in object_list %}
-            <p><a href="/videos/{{ video.id }}"> {{ video.title }}</a></p>
+        {% for video_type in video_list %}
+            <ul>
+                <li>{{ video_type.video_type }}
+                </li>
+            </ul>
         {% endfor %}
+
+       <!--  {% for video in object_list %}
+            <p><a href="/videos/{{ video.id }}"> {{ video.title }}</a></p>
+        {% endfor %} -->
 
     </article>
 </aside>
