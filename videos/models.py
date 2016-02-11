@@ -33,10 +33,10 @@ class Video(models.Model):
 class TutorialVideos(models.Model):
 	tutorial = models.ForeignKey(Tutorial)
 	video = models.ForeignKey(Video)
-	my_order = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
+	# my_order = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
 
-	class Meta(object):
-		ordering = ('my_order',)
+	# class Meta(object):
+	# 	ordering = ('my_order',)
 
 	def __unicode__(self):
 		return self.tutorial + ": " + self.video

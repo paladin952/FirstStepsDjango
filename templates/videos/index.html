@@ -5,9 +5,16 @@
     <article>
         <h3>Recent News</h3>
 
-        {% for video_type in video_list %}
+        {% for tutorial in tutorials_list %}
             <ul>
-                <li>{{ video_type.video_type }}
+                <li>{{ tutorial.name }}
+                    <ul>
+                         {% for tutorial_video in tutorial_videos_list %}
+                            {% if tutorial_video.tutorial == tutorial %}
+                            <li>{{ tutorial_video.video.title }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
                 </li>
             </ul>
         {% endfor %}
@@ -23,7 +30,7 @@
 {% block content %}
 
 
-{% for video in object_list %}
+{% for video in videos_list %}
         <div class="mainContent">
             <div class="content">
                 <article class="typicalArticle">
