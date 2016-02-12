@@ -33,10 +33,9 @@ class Video(models.Model):
 class TutorialVideos(models.Model):
 	tutorial = models.ForeignKey(Tutorial)
 	video = models.ForeignKey(Video)
-	# my_order = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
 
-	# class Meta(object):
-	# 	ordering = ('my_order',)
+	# def get_absolute_url(self):
+	# 	return '/%s/%s/' % (self.tutorial.name)
 
 	def __unicode__(self):
 		return self.tutorial + ": " + self.video

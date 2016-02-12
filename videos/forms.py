@@ -5,17 +5,17 @@ from .models import Tutorial
 from .models import TutorialVideos
 from .models import Video
 
-class CustomModelChoiceField(forms.ModelChoiceField):
+class TutorialModelChoiceField(forms.ModelChoiceField):
 	def label_from_instance(self, tutorial):
 		return "%s" % (tutorial.name)
 
-class CustomModelChoiceField2(forms.ModelChoiceField):
+class VideoModelChoiceField(forms.ModelChoiceField):
 	def label_from_instance(self, video):
 		return "%s" % (video.title)
 
 class TutorialVideosForms(forms.ModelForm):
-	tutorial = CustomModelChoiceField(queryset=Tutorial.objects.all())
-	video = CustomModelChoiceField2(queryset=Video.objects.all())
+	tutorial = TutorialModelChoiceField(queryset=Tutorial.objects.all())
+	video = VideoModelChoiceField(queryset=Video.objects.all())
 	class Meta:
 		model = TutorialVideos
 		fields = '__all__'

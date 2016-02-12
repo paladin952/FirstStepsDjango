@@ -3,26 +3,21 @@
 {% block siderbar %}
 <aside class="sideInfo">
     <article>
-        <h3>Recent News</h3>
+        <h3>{{ sidebar_title }}</h3>
 
         {% for tutorial in tutorials_list %}
             <ul>
-                <li>{{ tutorial.name }}
+                <li><a href="/videos/tutorials/{{ tutorial.name }}" title="Tutorials link">{{ tutorial.name }}</a>
                     <ul>
                          {% for tutorial_video in tutorial_videos_list %}
                             {% if tutorial_video.tutorial == tutorial %}
-                            <li>{{ tutorial_video.video.title }}</li>
+                            <li><a href="/videos/{{ tutorial_video.video.id }}" title="video link">{{ tutorial_video.video.title }}</a></li>
                             {% endif %}
                         {% endfor %}
                     </ul>
                 </li>
             </ul>
         {% endfor %}
-
-       <!--  {% for video in object_list %}
-            <p><a href="/videos/{{ video.id }}"> {{ video.title }}</a></p>
-        {% endfor %} -->
-
     </article>
 </aside>
 {% endblock %}
@@ -35,7 +30,7 @@
             <div class="content">
                 <article class="typicalArticle">
                     <header>
-                        <h3><a href="/videos/{{ video.id }}" title="Latest post">{{ video.title }}</a></h3>
+                        <h3><a href="/videos/{{ video.id }}" title="video link">{{ video.title }}</a></h3>
                         <p>{{ video.description }}</p>
                     </header>
 
