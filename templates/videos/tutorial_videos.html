@@ -1,30 +1,6 @@
-{% extends "base.html" %}
-
-{% block siderbar %}
-<aside class="sideInfo">
-    <article>
-        <h3>{{ sidebar_title }}</h3>
-
-        {% for tutorial in tutorials_list %}
-            <ul>
-                <li>{{ tutorial.name }}
-                    <ul>
-                         {% for tutorial_video in tutorial_videos_list %}
-                            {% if tutorial_video.tutorial == tutorial %}
-                            <li>{{ tutorial_video.video.title }}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-        {% endfor %}
-    </article>
-</aside>
-{% endblock %}
+{% extends "videos/base_videos.html" %}
 
 {% block content %}
-
-
 {% for tutorial_video in tutorial_videos_list %}
         {% if tutorial_video.tutorial.name|lower == current_tutorial|lower %}
             <div class="mainContent">
