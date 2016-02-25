@@ -1,19 +1,29 @@
 {% extends "videos/base_videos.html" %}
 
+{% block current_video %}
+    {% if video == tutorial_video.video %}
+        <div style="color:#FF0000">
+            <li>{{ tutorial_video.video.title }}</li>
+        </div>
+    {% else %}
+        <li><a href="/videos/{{ tutorial_video.video.id }}" title="video link">{{ tutorial_video.video.title }}</a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-    <iframe width="960" height="540" 
-        src={{ video.url }} frameborder="0" allowfullscreen>
+    <iframe width="960" height="540"
+            src={{ video.url }} frameborder="0" allowfullscreen>
     </iframe>
 
     <div class="mainContent">
-            <div class="content">
-                <article class="typicalArticle">
-                    <header>
-                        <h3>{{ video.title }}</h3>
-                    
-                    </header>
+        <div class="content">
+            <article class="typicalArticle">
+                <header>
+                    <h3>{{ video.title }}</h3>
 
-                </article>
-            </div>
+                </header>
+
+            </article>
         </div>
+    </div>
 {% endblock %}

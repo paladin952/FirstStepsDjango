@@ -7,11 +7,19 @@
 
         {% for tutorial in tutorials_list %}
             <ul>
+            {% if current_tutorial == tutorial|lower %}
+                 <div style="color:#FF0000">
+                    <li>{{ tutorial.name }}
+                </div>
+            {% else %}
                 <li><a href="/videos/tutorials/{{ tutorial.name }}" title="Tutorials link">{{ tutorial.name }}</a>
+            {% endif %}
                     <ul>
                          {% for tutorial_video in tutorial_videos_list %}
                             {% if tutorial_video.tutorial == tutorial %}
-                            <li><a href="/videos/{{ tutorial_video.video.id }}" title="video link">{{ tutorial_video.video.title }}</a></li>
+                                {% block current_video %}
+                                     <li><a href="/videos/{{ tutorial_video.video.id }}" title="video link">{{ tutorial_video.video.title }}</a></li>
+                                {% endblock %}
                             {% endif %}
                         {% endfor %}
                     </ul>

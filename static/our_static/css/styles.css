@@ -118,3 +118,7 @@ iframe {
     margin: 2% auto;
     color: #fff;
 }
+
+.currentUsedVideo li{
+    color: #797979;
+}
