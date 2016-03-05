@@ -86,6 +86,10 @@ iframe {
     -moz-border-radius: 7px;
 }
 
+.mainContent p {
+    word-wrap: break-word;
+}
+
 .content {
     width: 70%;
     float: right;

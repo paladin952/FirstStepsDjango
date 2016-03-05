@@ -12,13 +12,13 @@ urlpatterns = [
         model=Post,
         template_name="post.html")),
 
-    url(r'^archives$', ListView.as_view(
-        queryset=Post.objects.all().order_by("-date"),
-        template_name="postTitleList.html")),
+    # url(r'^archives$', ListView.as_view(
+    #     queryset=Post.objects.all().order_by("-date"),
+    #     template_name="postTitleList.html")),
 
     # just the last 5 stories
-    url(r'^latestnews', ListView.as_view(
-        queryset=Post.objects.all().order_by("-date")[:5],
-        template_name="latestnews.html")),
+    # url(r'^latestnews', ListView.as_view(
+    #     queryset=Post.objects.all().order_by("-date")[:5],
+    #     template_name="latestnews.html")),
 
     ]

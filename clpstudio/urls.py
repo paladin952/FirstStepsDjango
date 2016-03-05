@@ -26,8 +26,6 @@ urlpatterns = [
 
                   url(r'^admin/', admin.site.urls),
 
-                  url(r'^signup/$', "blog.views.sign_up"),
-
                   url(r'^contact/$', "blog.views.contact"),
 
                   url(r'^$', "blog.views.home", name="home"),

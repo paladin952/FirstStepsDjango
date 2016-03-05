@@ -1,38 +1,27 @@
 from django.shortcuts import render
-from .forms import ContactForm, SignUpForm
-from django.core.mail import send_mail
-from django.conf import settings
 
+from .forms import ContactForm
+from videos.models import Video
+from .models import Post
 
 # Create your views here.
 
 def home(request):
     title = "CLPSTUDIO"
+
+    videos_list = Video.objects.all()
+    blog_posts_list = Post.objects.all()
+
+    all_site_posts = []
+    all_site_posts += videos_list
+    all_site_posts += blog_posts_list
+
     context = {
+        "all_site_posts": all_site_posts,
         "title": title,
-        }
-    return render(request, "base.html", context)
-
-
-def sign_up(request):
-    form = SignUpForm(request.POST or None)  # if there is POST data validate it
-
-    # check validation
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.save()
-        print("PRINT " + instance.email)
-        print("PRINT " + instance.password)
-    else:
-        print("Errors: " + str(form.errors))
-
-    title = "SIGN UP"
-    context = {
-        "title": title,
-        "form": form,
     }
 
-    return render(request, "signUp.html", context)
+    return render(request, "base.html", context)
 
 
 # contact form
